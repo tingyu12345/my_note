@@ -1,0 +1,504 @@
+<title>入厝儀式時程</title>
+<meta name="description" content="入厝前三天至當天的完整時間流程，一人極簡版本，含煮湯圓儀式">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root {
+    --bg: #f7f1e4;
+    --paper: #fffcf5;
+    --ink: #2b2019;
+    --ink-soft: #6e5c4c;
+    --ink-faint: #a3937f;
+    --accent: #a8291f;
+    --accent-soft: #c4483d;
+    --gold: #a67c2e;
+    --gold-soft: #cfa94f;
+    --line: #ddccab;
+    --spine: #d8b46a;
+    --shadow: rgba(60, 40, 20, 0.10);
+    --tag-bg: #f1e4c8;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1b140f;
+      --paper: #241b14;
+      --ink: #f1e6d6;
+      --ink-soft: #c7b6a0;
+      --ink-faint: #8a7a65;
+      --accent: #e2574a;
+      --accent-soft: #ec776b;
+      --gold: #e0b968;
+      --gold-soft: #f0d190;
+      --line: #4a3c2c;
+      --spine: #8a6a2e;
+      --shadow: rgba(0, 0, 0, 0.35);
+      --tag-bg: #33271b;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #1b140f;
+    --paper: #241b14;
+    --ink: #f1e6d6;
+    --ink-soft: #c7b6a0;
+    --ink-faint: #8a7a65;
+    --accent: #e2574a;
+    --accent-soft: #ec776b;
+    --gold: #e0b968;
+    --gold-soft: #f0d190;
+    --line: #4a3c2c;
+    --spine: #8a6a2e;
+    --shadow: rgba(0, 0, 0, 0.35);
+    --tag-bg: #33271b;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    padding-inline: 20px;
+    padding-block: 40px 64px;
+    line-height: 1.7;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin-inline: auto;
+  }
+
+  /* ---------- Header ---------- */
+  .masthead {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .eyebrow::before, .eyebrow::after {
+    content: "";
+    width: 22px;
+    height: 1px;
+    background: var(--gold-soft);
+  }
+
+  h1 {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 900;
+    font-size: clamp(28px, 6vw, 42px);
+    text-wrap: balance;
+    margin: 0 0 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .subtitle {
+    color: var(--ink-soft);
+    font-size: 15px;
+    max-width: 46ch;
+    margin: 0 auto 36px;
+  }
+
+  .subtitle b { color: var(--ink); font-weight: 700; }
+
+  /* ---------- Day section headers ---------- */
+  .day-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 56px 0 22px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--line);
+  }
+
+  .day-header:first-of-type { margin-top: 8px; }
+
+  .day-label {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  .day-note {
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline {
+    position: relative;
+    padding-left: 34px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--spine), var(--line) 92%, transparent);
+  }
+
+  .step {
+    position: relative;
+    padding-bottom: 30px;
+  }
+
+  .step:last-child { padding-bottom: 4px; }
+
+  .step::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2.5px solid var(--gold);
+  }
+
+  .step.major::before {
+    background: var(--accent);
+    border-color: var(--accent);
+    width: 14px;
+    height: 14px;
+    left: -35px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+
+  .step-time {
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.03em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .step.major .step-time { color: var(--accent); }
+
+  .step-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .step-title {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
+    font-size: 16.5px;
+    margin: 0 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .step-num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--paper);
+    background: var(--gold);
+    border-radius: 5px;
+    padding: 1px 6px;
+    flex-shrink: 0;
+  }
+
+  .step.major .step-num { background: var(--accent); }
+
+  .step-detail {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .step-detail li {
+    position: relative;
+    padding-left: 16px;
+  }
+
+  .step-detail li::before {
+    content: "·";
+    position: absolute;
+    left: 2px;
+    color: var(--gold-soft);
+    font-weight: 700;
+  }
+
+  .step-detail b, .step-detail strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .mantra {
+    font-family: "Noto Serif TC", serif;
+    font-weight: 700;
+    color: var(--accent-soft);
+    font-size: 15px;
+  }
+
+  /* ---------- Sub-group for the 5 steps at 09:00 ---------- */
+  .cluster-tag {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    background: var(--tag-bg);
+    border-radius: 5px;
+    padding: 2px 8px;
+    margin-bottom: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- Checklist box ---------- */
+  .kit {
+    margin-top: 56px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 22px 22px 20px;
+    box-shadow: 0 1px 2px var(--shadow);
+  }
+
+  .kit h2 {
+    font-family: "Noto Serif TC", serif;
+    font-size: 17px;
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .kit h2::before {
+    content: "";
+    width: 4px;
+    height: 16px;
+    background: var(--gold);
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .kit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px 22px;
+  }
+
+  .kit-group dt {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+
+  .kit-group dd {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 48px;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  @media (max-width: 480px) {
+    .step-card { padding: 14px 14px; }
+    .day-header { flex-direction: column; gap: 2px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="masthead">
+    <span class="eyebrow">入厝擇日儀式</span>
+    <h1>入厝儀式時程表</h1>
+    <p class="subtitle">前三天到當天的完整流程 · <b>一人極簡版</b> · 煮湯圓版</p>
+  </div>
+
+  <div class="day-header">
+    <span class="day-label">入厝前 3 天</span>
+    <span class="day-note">白天前往新家 · 淨屋暖房</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="step">
+      <span class="step-time">白天 · 任一時段</span>
+      <div class="step-card">
+        <p class="step-title"><span class="step-num">01</span>艾草薰香淨屋</p>
+        <ul class="step-detail">
+          <li>進門推開全室窗戶通風。</li>
+          <li>點燃艾草條放在瓷盤上，由內向外<b>順時針</b>繞行四周牆角，一路薰到玄關。</li>
+          <li>排煙後，拿新掃把由內向外象徵性掃地。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-time">接續</span>
+      <div class="step-card">
+        <p class="step-title"><span class="step-num">02</span>冰存湯圓＆檢查廚具</p>
+        <ul class="step-detail">
+          <li><b>將買好的冷凍湯圓直接放入新家冰箱冷凍庫</b>，象徵糧庫豐盈、生活不缺。</li>
+          <li>順手確認煮湯圓用的小鍋、湯勺已就位在流理台。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-time">離開前</span>
+      <div class="step-card">
+        <p class="step-title"><span class="step-num">03</span>啟動火庵（暖房）＆離開</p>
+        <ul class="step-detail">
+          <li>確認艾草完全熄滅。</li>
+          <li><b>關閉所有門窗、拉上窗簾</b>，防塵、防雨、防蟲、防盜。</li>
+          <li><b>客廳與玄關留 1～2 盞燈，連續點亮 3 天 3 夜不滅</b>。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-time">舊家準備</span>
+      <div class="step-card">
+        <p class="step-title"><span class="step-num">04</span>舊家物資整備</p>
+        <ul class="step-detail">
+          <li>洗淨擦乾硬幣：<b>168 撒錢硬幣</b>（50元×2、10元×6、1元×8）與 <b>10 枚安床硬幣</b>。</li>
+          <li>備妥開門七寶（貼小紅紙）、新碗筷、新床單。</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="day-header">
+    <span class="day-label">入厝當天</span>
+    <span class="day-note">報戶口 → 吉時進宅 → 煮湯圓 → 安床</span>
+  </div>
+
+  <div class="timeline">
+
+    <div class="step major">
+      <span class="step-time">08:00 – 08:45</span>
+      <div class="step-card">
+        <p class="step-title">拜土地公（報戶口）</p>
+        <ul class="step-detail">
+          <li>前往新家附近土地公廟，帶甜點（麻糬／發糕）、水果 1 樣、土地公金紙。</li>
+          <li>向土地公稟報<b>姓名與新家地址</b>。</li>
+          <li>燒化金紙後，把甜點收妥帶往新家。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="step-time">08:50</span>
+      <div class="step-card">
+        <p class="step-title">新家門前整裝</p>
+        <ul class="step-detail">
+          <li><b>隨身包包／口袋</b>：皮夾、存摺、168 撒錢硬幣。</li>
+          <li><b>手提袋</b>：開門七寶、新碗筷、拜過土地公的甜點。</li>
+          <li>兩手輕便、手上有財，等待吉時。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="step major">
+      <span class="step-time">09:00　吉時到</span>
+      <div class="step-card">
+        <span class="cluster-tag">吉時五步驟 · 依序執行</span>
+        <p class="step-title" style="margin-bottom:12px;"><span class="step-num">1</span>吉時踏入家門</p>
+        <ul class="step-detail" style="margin-bottom:16px;">
+          <li>開門踏入，口唸吉利話：<br><span class="mantra">「進喔！雙腳踏入來，富貴帶進來，平安順遂！」</span></li>
+          <li>帶財入庫、衣食豐足。</li>
+        </ul>
+
+        <p class="step-title" style="margin-bottom:12px;"><span class="step-num">2</span>全室開窗開燈</p>
+        <ul class="step-detail" style="margin-bottom:16px;">
+          <li>順手將全室電燈打開，滿堂生輝。</li>
+          <li>推開客廳與臥室窗戶對流通風，開門納吉。</li>
+        </ul>
+
+        <p class="step-title" style="margin-bottom:12px;"><span class="step-num">3</span>撒錢引財</p>
+        <ul class="step-detail" style="margin-bottom:16px;">
+          <li>拿出 168 發財硬幣，向客廳與臥室各角落輕輕拋撒，遍地黃金。</li>
+          <li>硬幣在地上留 <b>3～7 天</b>，日後掃起存入銀行當發財母錢。</li>
+        </ul>
+
+        <p class="step-title" style="margin-bottom:12px;"><span class="step-num">4</span>開水開火・煮甜湯圓</p>
+        <ul class="step-detail" style="margin-bottom:16px;">
+          <li><b>開水</b>：廚房水龍頭轉開細水流 1～2 分鐘，細水長流。</li>
+          <li><b>開火</b>：開啟爐火（或 IH 爐），將小鍋加水煮沸，風生水起。</li>
+          <li><b>煮湯圓</b>：從冰箱取出湯圓，下入 6 顆或 8 顆，煮至浮起。</li>
+          <li><b>享用福氣</b>：盛入新碗，用新筷子享用熱騰騰甜湯圓，配土地公甜點，象徵新居圓滿甜蜜。</li>
+        </ul>
+
+        <p class="step-title" style="margin-bottom:12px;"><span class="step-num">5</span>安床壓硬幣</p>
+        <ul class="step-detail">
+          <li>床架與床墊靠牆推正。</li>
+          <li>在床墊與床架間放入 <b>10 枚乾淨硬幣</b>（四角各 2 枚、正中間 2 枚，象徵十全十美）。</li>
+          <li>鋪上全新床單與枕套 — 全套儀式圓滿禮成！</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="kit">
+    <h2>隨身物品速查</h2>
+    <div class="kit-grid">
+      <div class="kit-group">
+        <dt>硬幣</dt>
+        <dd>168 撒錢硬幣（50×2、10×6、1×8）、10 枚安床硬幣</dd>
+      </div>
+      <div class="kit-group">
+        <dt>拜拜用品</dt>
+        <dd>甜點、水果、土地公金紙</dd>
+      </div>
+      <div class="kit-group">
+        <dt>開門七寶</dt>
+        <dd>貼小紅紙，隨手提袋帶入</dd>
+      </div>
+      <div class="kit-group">
+        <dt>新用品</dt>
+        <dd>新碗筷、新床單枕套</dd>
+      </div>
+      <div class="kit-group">
+        <dt>食材</dt>
+        <dd>冷凍湯圓（提前 3 天冰存）</dd>
+      </div>
+      <div class="kit-group">
+        <dt>證件</dt>
+        <dd>皮夾、存摺</dd>
+      </div>
+    </div>
+  </div>
+
+  <footer>入厝儀式時程 · 一人極簡版</footer>
+
+</div>
