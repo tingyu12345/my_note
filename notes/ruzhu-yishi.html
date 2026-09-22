@@ -331,27 +331,33 @@
   }
 
   @media (max-width: 600px) {
-    body { padding-inline: 14px; padding-block: 28px 48px; }
+    body { padding-inline: 14px; padding-block: 28px 48px; font-size: 16.5px; }
     .masthead { margin-bottom: 4px; }
-    .subtitle { margin-bottom: 28px; }
-    .day-header { flex-direction: column; align-items: flex-start; gap: 2px; margin: 40px 0 18px; }
-    .day-label { font-size: 19px; }
+    .subtitle { font-size: 16px; margin-bottom: 28px; }
+    .day-header { flex-direction: column; align-items: flex-start; gap: 4px; margin: 40px 0 18px; }
+    .day-label { font-size: 21px; }
+    .day-note { font-size: 14.5px; }
     .timeline { padding-left: 24px; }
     .step::before { left: -24px; width: 10px; height: 10px; }
     .step.major::before { left: -25px; width: 12px; height: 12px; }
+    .step-time { font-size: 13.5px; }
     .step-card { padding: 14px 14px; }
-    .step-title { font-size: 15.5px; }
-    .step-detail { font-size: 13.5px; }
-    .mantra { font-size: 14px; }
+    .step-title { font-size: 17.5px; }
+    .step-detail { font-size: 15.5px; }
+    .mantra { font-size: 16px; }
+    .cluster-tag { font-size: 12.5px; }
     .kit { padding: 18px 16px 16px; margin-top: 40px; }
+    .kit h2 { font-size: 18px; }
     .kit-grid { grid-template-columns: 1fr; gap: 12px; }
+    .kit-group dt { font-size: 14px; }
+    .kit-group dd { font-size: 15px; }
+    footer { font-size: 13px; }
   }
 
   @media (max-width: 360px) {
     .timeline { padding-left: 20px; }
     .step::before { left: -20px; }
     .step.major::before { left: -21px; }
-    .day-note { font-size: 12px; }
   }
 
   .back-link {
