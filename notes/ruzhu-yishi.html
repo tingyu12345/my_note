@@ -1,5 +1,7 @@
+<meta charset="UTF-8">
 <title>入厝儀式時程</title>
 <meta name="description" content="入厝前三天至當天的完整時間流程，一人極簡版本，含煮湯圓儀式">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@500;600&display=swap">
 <style>
   :root {
@@ -328,9 +330,28 @@
     font-family: "JetBrains Mono", monospace;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
+    body { padding-inline: 14px; padding-block: 28px 48px; }
+    .masthead { margin-bottom: 4px; }
+    .subtitle { margin-bottom: 28px; }
+    .day-header { flex-direction: column; align-items: flex-start; gap: 2px; margin: 40px 0 18px; }
+    .day-label { font-size: 19px; }
+    .timeline { padding-left: 24px; }
+    .step::before { left: -24px; width: 10px; height: 10px; }
+    .step.major::before { left: -25px; width: 12px; height: 12px; }
     .step-card { padding: 14px 14px; }
-    .day-header { flex-direction: column; gap: 2px; }
+    .step-title { font-size: 15.5px; }
+    .step-detail { font-size: 13.5px; }
+    .mantra { font-size: 14px; }
+    .kit { padding: 18px 16px 16px; margin-top: 40px; }
+    .kit-grid { grid-template-columns: 1fr; gap: 12px; }
+  }
+
+  @media (max-width: 360px) {
+    .timeline { padding-left: 20px; }
+    .step::before { left: -20px; }
+    .step.major::before { left: -21px; }
+    .day-note { font-size: 12px; }
   }
 
   .back-link {
