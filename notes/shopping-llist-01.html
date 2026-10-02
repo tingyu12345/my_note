@@ -184,11 +184,55 @@
       margin-top: 24px;
       padding-bottom: 20px;
     }
+
+    .to-index {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 1;
+      z-index: 50;
+    }
+
+    .to-index:hover {
+      border-color: var(--primary);
+    }
+
+    @media (max-width: 600px) {
+      .to-index { right: 14px; bottom: 14px; width: 40px; height: 40px; font-size: 16px; }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 16px;
+    }
+
+    .back-link:hover {
+      color: var(--primary);
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
+    <a class="back-link" href="../index.html">← 返回首頁</a>
+
     <header>
       <h1>🍳 料理工具採買清單</h1>
       <p>單人住・電鍋／IH爐／氣炸鍋 廚房起步配置</p>
@@ -320,6 +364,8 @@
       點擊項目即可標記已購買 ✦ 祝週末開伙順利！
     </footer>
   </div>
+
+  <a href="../index.html" class="to-index" aria-label="返回首頁">🏠</a>
 
   <script>
     function toggleCheck(element) {
