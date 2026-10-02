@@ -401,6 +401,43 @@
 
   @media (max-width: 600px) {
     .to-top { right: 14px; bottom: 14px; width: 40px; height: 40px; font-size: 16px; }
+    .to-index { right: 14px; bottom: 62px; width: 40px; height: 40px; font-size: 16px; }
+  }
+
+  /* ---------- Back to index (floating) ---------- */
+  .to-index {
+    position: fixed;
+    right: 20px;
+    bottom: 72px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 8px var(--shadow);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.15s ease;
+    z-index: 50;
+  }
+
+  .to-index.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .to-index:hover {
+    border-color: var(--gold);
+    color: var(--accent);
   }
 </style>
 
@@ -575,12 +612,15 @@
 
 </div>
 
+<a href="../index.html" class="to-index" id="toIndex" aria-label="返回首頁">🏠</a>
 <a href="#" class="to-top" id="toTop" aria-label="返回頂部">↑</a>
 
 <script>
   const toTopBtn = document.getElementById('toTop');
+  const toIndexBtn = document.getElementById('toIndex');
   window.addEventListener('scroll', () => {
     toTopBtn.classList.toggle('visible', window.scrollY > 400);
+    toIndexBtn.classList.toggle('visible', window.scrollY > 400);
   });
   toTopBtn.addEventListener('click', (e) => {
     e.preventDefault();
