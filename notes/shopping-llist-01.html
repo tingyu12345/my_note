@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新手開伙料理工具採買清單</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --primary: #0284c7;
+      --accent: #0f172a;
+      --border: #e2e8f0;
+      --tag-bg: #f1f5f9;
+      --checked-text: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      padding: 24px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+    }
+
+    header {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .summary-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .summary-card .label {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .summary-card .price {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .section-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--tag-bg);
+    }
+
+    .section-header h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      background-color: #e0f2fe;
+      color: #0369a1;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    .item-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 8px 0;
+      cursor: pointer;
+    }
+
+    .item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .item-content {
+      flex: 1;
+    }
+
+    .item-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .item-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      transition: all 0.2s;
+    }
+
+    .item-price {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .item-spec {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Checked State */
+    .item.checked .item-name {
+      text-decoration: line-through;
+      color: var(--checked-text);
+    }
+
+    .item.checked .item-price,
+    .item.checked .item-spec {
+      color: var(--checked-text);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 24px;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>🍳 料理工具採買清單</h1>
+      <p>單人住・電鍋／IH爐／氣炸鍋 廚房起步配置</p>
+    </header>
+
+    <div class="summary-card">
+      <span class="label">預估總支出</span>
+      <span class="price">約 NT$ 1,350 ～ 1,570</span>
+    </div>
+
+    <!-- 站點 1：宜得利 -->
+    <div class="section-card">
+      <div class="section-header">
+        <h2>📍 宜得利家居 (NITORI)</h2>
+        <span class="badge">建議一站購足 8 項</span>
+      </div>
+      <ul class="item-list">
+        <li class="item" onclick="toggleCheck(this)">
+          <input type="checkbox">
+          <div class="item-content">
+            <div class="item-title-row">
+              <span class="item-name">噴倒兩用油壺 520ML（象牙色）</span>
+              <span class="item-price">NT$ 149</span>
+            </div>
+            <div class="item-spec">商品編號 2111200007459｜鈉鈣玻璃、可切換噴油與倒油</div>
+          </div>
+        </li>
+
+        <li class="item" onclick="toggleCheck(this)">
+          <input type="checkbox">
+          <div class="item-content">
+            <div class="item-title-row">
+              <span class="item-name">不鏽鋼三德廚用刀 KY071</span>
+              <span class="item-price">NT$ 399</span>
+            </div>
+            <div class="item-spec">鉬釩不鏽鋼、刀刃鋒利好切肉切菜</div>
+          </div>
+        </li>
+
+        <li class="item" onclick="toggleCheck(this)">
+          <input type="checkbox">
+          <div class="item-content">
+            <div class="item-title-row">
+              <span class="item-name">不鏽鋼水果小刀（KY071 或 全不鏽鋼款）</span>
+              <span class="item-price">約 NT$ 199~299</span>
+            </div>
+            <div class="item-spec">小巧靈巧｜削切水果、去果核或切蒜末、辣椒不沾生肉腥味</div>
+          </div>
+        </li>
+
+        <li class="item" onclick="toggleCheck(this)">
+          <input type="checkbox">
+          <div class="item-content">
+            <div class="item-title-row">
+              <span class="item-name">陶瓷削皮刀 / Y型刨刀</span>
+              <span class="item-price">約 NT$ 79~99</span>
+            </div>
+            <div class="item-spec">削皮器｜削蘋果、紅蘿蔔、馬鈴薯皮薄又省力</div>
+          </div>
+        </li>
+
+        <li class="item" onclick="toggleCheck(this)">
+          <input type="checkbox">
+          <div class="item-content">
+            <div class="item-title-row">
+              <span class="item-name">可機洗耐熱抗菌防滑砧板 石紋 L</span>
+              <span class="item-price">NT$ 249</span>
+            </div>
+            <div class="item-spec">約 25.5×35.5cm｜邊緣包覆防滑膠條、雙面可用</div>
+          </div>
+        </li>
+
+        <li class="item" onclick="toggleCheck(this)">
+          <input type="checkbox">
+          <div class="item-content">
+            <div class="item-title-row">
+              <span class="item-name">矽膠料理夾 M</span>
+              <span class="item-price">NT$ 99</span>
+            </div>
+            <div class="item-spec">耐熱矽膠材質｜翻炒與夾取雞腿排不傷不沾鍋</div>
+          </div>
+        </li>
+
+        <li class="item" onclick="toggleCheck(this)">
+          <input type="checkbox">
+          <div class="item-content">
+            <div class="item-title-row">
+              <span class="item-name">矽膠料理勺 / 鍋鏟</span>
+              <span class="item-price">NT$ 119</span>
+            </div>
+            <div class="item-spec">貼合平底鍋弧度、翻炒青菜與起鍋盛盤順手</div>
+          </div>
+        </li>
+
+        <li class="item" onclick="toggleCheck(this)">
+          <input type="checkbox">
+          <div class="item-content">
+            <div class="item-title-row">
+              <span class="item-name">矽膠鴨嘴隔熱手套（或純棉手套）</span>
+              <span class="item-price">約 NT$ 99~119</span>
+            </div>
+            <div class="item-spec">拿取電鍋內鍋、拉出氣炸鍋炸籃防燙</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 站點 2：旺來昌 / 家樂福 -->
+    <div class="section-card">
+      <div class="section-header">
+        <h2>📍 旺來昌 或 家樂福</h2>
+        <span class="badge">耗材補齊 1 項</span>
+      </div>
+      <ul class="item-list">
+        <li class="item" onclick="toggleCheck(this)">
+          <input type="checkbox">
+          <div class="item-content">
+            <div class="item-title-row">
+              <span class="item-name">氣炸鍋專用圓形烘焙紙盤</span>
+              <span class="item-price">約 NT$ 60~80</span>
+            </div>
+            <div class="item-spec">50~100 入裝｜建議選 16cm 加高盤型，烤肉免刷鍋</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <footer>
+      點擊項目即可標記已購買 ✦ 祝週末開伙順利！
+    </footer>
+  </div>
+
+  <script>
+    function toggleCheck(element) {
+      const checkbox = element.querySelector('input[type="checkbox"]');
+      if (event.target !== checkbox) {
+        checkbox.checked = !checkbox.checked;
+      }
+      if (checkbox.checked) {
+        element.classList.add('checked');
+      } else {
+        element.classList.remove('checked');
+      }
+    }
+  </script>
+</body>
+</html>
